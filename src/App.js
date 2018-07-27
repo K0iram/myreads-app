@@ -1,9 +1,8 @@
-import React from 'react'
-import { Link, Route } from 'react-router-dom'
+import React, {Component}from 'react'
 
 import './App.css'
 
-class App extends React.Component {
+class App extends Component {
 
   render() {
     return (
