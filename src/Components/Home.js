@@ -6,6 +6,16 @@ import * as BooksAPI from '../BooksAPI'
 
 class Home extends Component {
   componentDidMount() {
+    this.getAllBooks()
+  }
+
+  state = {
+    booksReading: [],
+    booksRead: [],
+    booksWaiting: []
+  }
+
+  getAllBooks = () => {
     BooksAPI.getAll().then((res) => {
       let currentlyReading = res.filter(book => book.shelf === 'currentlyReading')
       let read = res.filter(book => book.shelf === 'read');
@@ -16,11 +26,6 @@ class Home extends Component {
         booksWaiting: wantToRead
       })
     })
-  }
-  state = {
-    booksReading: [],
-    booksRead: [],
-    booksWaiting: []
   }
 
   render() {
@@ -38,7 +43,7 @@ class Home extends Component {
                 <div className="bookshelf-books">
                   <ol className="books-grid">
                     {booksReading.map((book) => (
-                      <li>
+                      <li key={book.id}>
                         <Book book={book}/>
                       </li>
                     ))}
@@ -50,7 +55,7 @@ class Home extends Component {
                 <div className="bookshelf-books">
                   <ol className="books-grid">
                     {booksWaiting.map((book) => (
-                      <li>
+                      <li key={book.id}>
                         <Book book={book}/>
                       </li>
                     ))}
@@ -62,7 +67,7 @@ class Home extends Component {
                 <div className="bookshelf-books">
                   <ol className="books-grid">
                     {booksRead.map((book) => (
-                      <li>
+                      <li key={book.id}>
                         <Book book={book}/>
                       </li>
                     ))}

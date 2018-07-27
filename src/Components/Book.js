@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Select from './Select'
 
 
@@ -13,7 +13,12 @@ const Book = ({book}) => {
       <Select/>
     </div>
     <div className="book-title">{title}</div>
-    <div className="book-authors">{authors[0]}</div>
+      {authors.length > 1 ? (
+          authors.map((author, i) => ( <div key={i} className="book-authors">{author}<br/></div>))
+        ) : (
+          <div className="book-authors">{authors[0]}</div>
+        )
+      }
   </div>
   )
 }
