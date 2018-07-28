@@ -44,7 +44,7 @@ class Home extends Component {
                   <ol className="books-grid">
                     {booksReading.map((book) => (
                       <li key={book.id}>
-                        <Book book={book}/>
+                        <Book book={book} update={this.getAllBooks}/>
                       </li>
                     ))}
                   </ol>
@@ -56,7 +56,7 @@ class Home extends Component {
                   <ol className="books-grid">
                     {booksWaiting.map((book) => (
                       <li key={book.id}>
-                        <Book book={book}/>
+                        <Book book={book} update={this.getAllBooks}/>
                       </li>
                     ))}
                   </ol>
@@ -68,7 +68,7 @@ class Home extends Component {
                   <ol className="books-grid">
                     {booksRead.map((book) => (
                       <li key={book.id}>
-                        <Book book={book}/>
+                        <Book book={book} update={this.getAllBooks}/>
                       </li>
                     ))}
                   </ol>
