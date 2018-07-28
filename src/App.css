@@ -172,3 +172,23 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+
+/* custom css */
+
+.error-message {
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.go-back {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}

@@ -13,6 +13,7 @@ class SearchBar extends Component {
 
     searchBooks = (e) => {
       e.preventDefault()
+      this.setState({query: ''})
       this.props.onSearch(this.state.query)
     }
 
@@ -22,7 +23,7 @@ class SearchBar extends Component {
           <Link className="close-search" to="/">Close</Link>
           <div className="search-books-input-wrapper">
             <form onSubmit={this.searchBooks}>
-              <input type="text" placeholder="Search by title or author" onChange={this.onInputChange}/>
+              <input type="text" placeholder="Search by title or author" onChange={this.onInputChange} value={this.state.query}/>
             </form>
           </div>
         </div>

@@ -3,7 +3,7 @@ import Select from './Select'
 
 
 const Book = (props) => {
-  const { book, update } = props
+  const { book, update, results, myBooks, getSelected } = props
   const { imageLinks, title, authors, id } = book
   const { smallThumbnail } = imageLinks
 
@@ -12,7 +12,7 @@ const Book = (props) => {
     <div className="book">
     <div className="book-top">
       <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${smallThumbnail})`}}></div>
-      <Select book={book} id={id} update={update}/>
+      <Select book={book} id={id} update={update} results={results} myBooks={myBooks} getSelected={getSelected}/>
     </div>
     <div className="book-title">{title}</div>
       {authors &&

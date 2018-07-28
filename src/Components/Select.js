@@ -12,10 +12,18 @@ class Select extends Component {
     })
   }
 
+  getSelected = () => {
+    if( !!this.props.myBooks.find((b) => b.id === this.props.book.id)) {
+      return this.props.myBooks.find((b) => b.id === this.props.book.id).shelf
+    } else {
+      return 'move'
+    }
+  }
+
   render() {
     return (
       <div className="book-shelf-changer">
-        <select value={this.props.book.shelf} onChange={this.changeShelf}>
+        <select defaultValue={this.props.book.shelf ? this.props.book.shelf : this.getSelected()} onChange={this.changeShelf}>
           <option value="move" disabled>Move to...</option>
           <option value="currentlyReading">Currently Reading</option>
           <option value="wantToRead">Want to Read</option>
