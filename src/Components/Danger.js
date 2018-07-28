@@ -1,5 +1,5 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 
 const Danger = () => {
@@ -13,6 +13,6 @@ const Danger = () => {
       </div>
     </div>
   )
-}
+};
 
-export default Danger
+export default Danger;

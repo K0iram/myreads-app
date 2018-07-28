@@ -30,9 +30,11 @@ class App extends Component {
         booksRead: read,
         booksWaiting: wantToRead,
         myBooks: res
-      })
-    })
-  }
+      });
+    }).catch((err) => {
+      console.error(err)
+    });
+  };
 
   searchBooks = (query) => {
     BooksAPI.search(query).then((res) => {
@@ -49,10 +51,11 @@ class App extends Component {
       }
     }).catch((err) => {
       console.error(err)
-    })
-  }
+    });
+  };
 
   render() {
+    const { results, error, myBooks } = this.state
     return (
       <div>
       <Switch>
@@ -69,13 +72,14 @@ class App extends Component {
             onSearchBooks={(query) => {
               this.searchBooks(query)
             }}
-            results={this.state.results}
+            searchResults={results}
             update={this.getAllBooks}
-            myBooks={this.state.myBooks}
-            error={this.state.error}
+            myBooks={myBooks}
+            error={error}
           />
           )}
       />
+      {/* If the route is anything besides the above routes show the danger page */}
       <Route path="*" component={Danger} />
       </Switch>
       </div>

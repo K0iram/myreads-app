@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
-import Book from './Book'
+import React from 'react';
+import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Book from './Book';
 
 
-const Home = (props) =>{
-  const { results, update } = props
-  const { booksReading, booksRead, booksWaiting } = results
+const Home = (props) => {
+  const { results, update } = props;
+  const { booksReading, booksRead, booksWaiting } = results;
+  let noBooks = "Theres No Books On This Shelf"
   return (
     <div className="app">
       <div className="list-books">
@@ -24,6 +26,7 @@ const Home = (props) =>{
                     </li>
                   ))}
                 </ol>
+                {!booksReading.length && <h3>{noBooks}</h3>}
               </div>
             </div>
             <div className="bookshelf">
@@ -36,6 +39,7 @@ const Home = (props) =>{
                     </li>
                   ))}
                 </ol>
+                {!booksWaiting.length && <h3>{noBooks}</h3>}
               </div>
             </div>
             <div className="bookshelf">
@@ -48,6 +52,7 @@ const Home = (props) =>{
                     </li>
                   ))}
                 </ol>
+                {!booksRead.length && <h3>{noBooks}</h3>}
               </div>
             </div>
           </div>
@@ -58,6 +63,15 @@ const Home = (props) =>{
       </div>
     </div>
   )
-}
+};
 
-export default Home
+Home.propTypes = {
+  results: PropTypes.shape({
+      booksReading: PropTypes.array,
+      booksRead: PropTypes.array,
+      booksWaiting: PropTypes.array
+    }).isRequired,
+  update: PropTypes.func.isRequired
+};
+
+export default Home;

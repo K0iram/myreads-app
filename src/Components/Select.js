@@ -1,29 +1,36 @@
-import React, { Component } from 'react'
-import * as BooksAPI from '../BooksAPI'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import * as BooksAPI from '../BooksAPI';
 
 
 class Select extends Component {
 
   changeShelf = (e) => {
-    let book = this.props.book
-    let shelf = e.target.value
+    const { book, update } = this.props;
+    let shelf = e.target.value;
+
     BooksAPI.update(book, shelf).then(() => {
-      this.props.update()
-    })
-  }
+      update()
+    }).catch((err) => {
+      console.error(err)
+    });
+  };
 
   getSelected = () => {
-    if( !!this.props.myBooks.find((b) => b.id === this.props.book.id)) {
-      return this.props.myBooks.find((b) => b.id === this.props.book.id).shelf
+    const { book, myBooks } = this.props;
+
+    if(!!myBooks.find((b) => b.id === book.id)) {
+      return myBooks.find((b) => b.id === book.id).shelf
     } else {
       return 'move'
     }
-  }
+  };
 
   render() {
+    const {book} = this.props;
     return (
       <div className="book-shelf-changer">
-        <select defaultValue={this.props.book.shelf ? this.props.book.shelf : this.getSelected()} onChange={this.changeShelf}>
+        <select defaultValue={book.shelf ? book.shelf : this.getSelected()} onChange={this.changeShelf}>
           <option value="move" disabled>Move to...</option>
           <option value="currentlyReading">Currently Reading</option>
           <option value="wantToRead">Want to Read</option>
@@ -32,7 +39,16 @@ class Select extends Component {
         </select>
       </div>
     )
-  }
+  };
 }
 
-export default Select
+Select.propTypes = {
+  book: PropTypes.shape({
+    id: PropTypes.string,
+    shelf: PropTypes.string
+  }),
+  update: PropTypes.func,
+  myBooks: PropTypes.array
+};
+
+export default Select;

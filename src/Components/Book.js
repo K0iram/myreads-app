@@ -1,11 +1,12 @@
-import React from 'react'
-import Select from './Select'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Select from './Select';
 
 
 const Book = (props) => {
-  const { book, update, results, myBooks, getSelected } = props
-  const { imageLinks, title, authors, id } = book
-  const { smallThumbnail } = imageLinks
+  const { book, update, results, myBooks, getSelected } = props;
+  const { imageLinks, title, authors, id } = book;
+  const { smallThumbnail } = imageLinks;
 
 
   return (
@@ -24,6 +25,20 @@ const Book = (props) => {
       }
     </div>
   )
-}
+};
 
-export default Book
+Book.propTypes = {
+  book: PropTypes.shape({
+      id: PropTypes.string,
+      authors: PropTypes.array,
+      title: PropTypes.string,
+      imageLinks: PropTypes.object
+    }).isRequired,
+  update: PropTypes.func.isRequired,
+  getSelected: PropTypes.func,
+  results: PropTypes.array,
+  myBooks: PropTypes.array
+};
+
+
+export default Book;

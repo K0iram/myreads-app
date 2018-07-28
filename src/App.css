@@ -121,6 +121,7 @@ body, .app {
 
 .book {
   width: 140px;
+  animation: fadein 2s;
 }
 .book-title,
 .book-authors {
@@ -192,3 +193,10 @@ body, .app {
   width: 100%;
   align-items: center;
 }
+
+/* keyframe to fadein books on load */
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+

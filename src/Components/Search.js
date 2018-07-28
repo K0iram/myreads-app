@@ -1,18 +1,19 @@
-import React from 'react'
-import SearchBar from './SearchBar'
-import Book from './Book'
+import React from 'react';
+import PropTypes from 'prop-types';
+import SearchBar from './SearchBar';
+import Book from './Book';
 
 
 const Search = (props) => {
-  const { results, error, myBooks, onSearchBooks, update } = props
+  const { searchResults, error, myBooks, onSearchBooks, update } = props
   return (
     <div>
       <div className="search-books">
         <SearchBar onSearch={onSearchBooks}/>
       <div className="search-books-results">
-      {results.length > 0 &&
+      {searchResults.length > 0 &&
         <ol className="books-grid">
-          {results.map((book) => <Book key={book.id} book={book} myBooks={myBooks} update={update} />)}
+          {searchResults.map((book) => <Book key={book.id} book={book} myBooks={myBooks} update={update} />)}
         </ol>
       }
       {error !== '' &&
@@ -24,6 +25,14 @@ const Search = (props) => {
     </div>
     </div>
   )
-}
+};
 
-export default Search
+Search.propTypes = {
+  update: PropTypes.func.isRequired,
+  onSearchBooks: PropTypes.func,
+  searchResults: PropTypes.array,
+  myBooks: PropTypes.array,
+  error: PropTypes.string
+};
+
+export default Search;
