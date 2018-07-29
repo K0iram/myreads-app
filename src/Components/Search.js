@@ -10,19 +10,26 @@ const Search = (props) => {
     <div>
       <div className="search-books">
         <SearchBar onSearch={onSearchBooks}/>
-      <div className="search-books-results">
-      {searchResults.length > 0 &&
-        <ol className="books-grid">
-          {searchResults.map((book) => <Book key={book.id} book={book} myBooks={myBooks} update={update} />)}
-        </ol>
-      }
-      {error !== '' &&
-        <div className="error-message">
-          <h1>{error}</h1>
+        <div className="search-books-results">
+        {searchResults.length > 0 &&
+          <ol className="books-grid">
+            {searchResults.map((book) =>
+              <Book
+                key={book.id}
+                book={book}
+                myBooks={myBooks}
+                update={update}
+              />
+            )}
+          </ol>
+        }
+        {error !== '' &&
+          <div className="error-message">
+            <h1>{error}</h1>
+          </div>
+        }
         </div>
-      }
       </div>
-    </div>
     </div>
   )
 };

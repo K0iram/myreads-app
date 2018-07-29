@@ -8,8 +8,8 @@ import {Route, Switch} from 'react-router-dom'
 
 class App extends Component {
   componentDidMount() {
-    this.getAllBooks()
-  }
+    this.getAllBooks();
+  };
 
   state = {
     booksReading: [],
@@ -18,7 +18,7 @@ class App extends Component {
     myBooks: [],
     results: [],
     error: ''
-  }
+  };
 
   getAllBooks = () => {
     BooksAPI.getAll().then((res) => {
@@ -55,33 +55,33 @@ class App extends Component {
   };
 
   render() {
-    const { results, error, myBooks } = this.state
+    const { results, error, myBooks } = this.state;
     return (
       <div>
-      <Switch>
-      <Route exact path='/' render={() => (
-        <Home
-          results={this.state}
-          update={this.getAllBooks}
-        />
-        )} />
-      <Route
-        path='/search'
-        render={() => (
-          <Search
-            onSearchBooks={(query) => {
-              this.searchBooks(query)
-            }}
-            searchResults={results}
-            update={this.getAllBooks}
-            myBooks={myBooks}
-            error={error}
+        <Switch>
+          <Route exact path='/' render={() => (
+            <Home
+              results={this.state}
+              update={this.getAllBooks}
+            />
+            )} />
+          <Route
+            path='/search'
+            render={() => (
+              <Search
+                onSearchBooks={(query) => {
+                  this.searchBooks(query)
+                }}
+                searchResults={results}
+                update={this.getAllBooks}
+                myBooks={myBooks}
+                error={error}
+              />
+              )}
           />
-          )}
-      />
-      {/* If the route is anything besides the above routes show the danger page */}
-      <Route path="*" component={Danger} />
-      </Switch>
+          {/* If the route is anything besides the above routes show the danger page */}
+          <Route path="*" component={Danger} />
+        </Switch>
       </div>
     );
   }

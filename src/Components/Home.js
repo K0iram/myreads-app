@@ -7,7 +7,8 @@ import Book from './Book';
 const Home = (props) => {
   const { results, update } = props;
   const { booksReading, booksRead, booksWaiting } = results;
-  let noBooks = "Theres No Books On This Shelf"
+  const noBooks = "There Are No Books On This Shelf"
+
   return (
     <div className="app">
       <div className="list-books">
