@@ -38,10 +38,10 @@ class App extends Component {
 
   searchBooks = (query) => {
     BooksAPI.search(query).then((res) => {
-      if(res.error) {
+      if(res.error === 'empty query') {
         this.setState({
           results: [],
-          error: 'Somthing went wrong try again'
+          error: 'Your search does not match the requires terms'
         })
       } else {
         this.setState({

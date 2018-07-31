@@ -12,7 +12,7 @@ const Search = (props) => {
       <div className="search-books">
         <SearchBar onSearch={onSearchBooks}/>
         <div className="search-books-results">
-        {searchResults.length > 0 &&
+        {!!searchResults.length &&
           <ol className="books-grid">
             {searchResults.map((book) =>
               <Book
@@ -24,7 +24,7 @@ const Search = (props) => {
             )}
           </ol>
         }
-        {error !== '' &&
+        {!searchResults.length &&
           <div className="error-message">
             <h1>{error}</h1>
           </div>
