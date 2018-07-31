@@ -2,10 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import Book from './Book';
+import SearchTerms from '../Utils/SearchTerms'
 
+// pick a random number under a given max
+const getRandomInt = (max) => {
+return Math.floor(Math.random() * Math.floor(max));
+}
+
+// collect 5 random elements from the serchterms arrays
+const randomArray = (arr) => {
+  let newArr = []
+  for(let i = 0; i < 5; i++) {
+    let rand = getRandomInt(arr.length-1)
+    newArr.push(arr[rand])
+  }
+  return newArr
+}
 
 const Search = (props) => {
   const { searchResults, error, myBooks, onSearchBooks, update } = props;
+
 
   return (
     <div>
@@ -24,9 +40,18 @@ const Search = (props) => {
             )}
           </ol>
         }
-        {!searchResults.length &&
-          <div className="error-message">
-            <h1>{error}</h1>
+        {error !== '' &&
+          <div>
+            <div className="error-message">
+              <div className="error-message__inner">
+                <h1>{error}</h1>
+                <h2>Try some of these recommended terms<br/>
+                  {randomArray(SearchTerms).map((word) => (
+                    <span>"{word}" </span>
+                  ))}
+                </h2>
+              </div>
+            </div>
           </div>
         }
         </div>
