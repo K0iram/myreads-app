@@ -5,7 +5,8 @@ import Book from './Book';
 
 
 const Search = (props) => {
-  const { searchResults, error, myBooks, onSearchBooks, update } = props
+  const { searchResults, error, myBooks, onSearchBooks, update } = props;
+
   return (
     <div>
       <div className="search-books">

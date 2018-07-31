@@ -7,10 +7,6 @@ import {Route, Switch} from 'react-router-dom'
 
 
 class App extends Component {
-  componentDidMount() {
-    this.getAllBooks();
-  };
-
   state = {
     booksReading: [],
     booksRead: [],
@@ -20,11 +16,15 @@ class App extends Component {
     error: ''
   };
 
+  componentDidMount() {
+    this.getAllBooks();
+  };
+
   getAllBooks = () => {
     BooksAPI.getAll().then((res) => {
-      let currentlyReading = res.filter(book => book.shelf === 'currentlyReading')
-      let read = res.filter(book => book.shelf === 'read');
-      let wantToRead = res.filter(book => book.shelf === 'wantToRead')
+      const currentlyReading = res.filter(book => book.shelf === 'currentlyReading')
+      const read = res.filter(book => book.shelf === 'read');
+      const wantToRead = res.filter(book => book.shelf === 'wantToRead')
       this.setState({
         booksReading: currentlyReading,
         booksRead: read,
@@ -69,9 +69,7 @@ class App extends Component {
             path='/search'
             render={() => (
               <Search
-                onSearchBooks={(query) => {
-                  this.searchBooks(query)
-                }}
+                onSearchBooks={this.searchBooks}
                 searchResults={results}
                 update={this.getAllBooks}
                 myBooks={myBooks}
