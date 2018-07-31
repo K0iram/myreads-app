@@ -194,6 +194,29 @@ body, .app {
   align-items: center;
 }
 
+.banner {
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 6px rgba(0,0,0,1.23);
+}
+
+#currentlyReading {
+  animation: fadein 1s;
+  background-color: #60ac5d;
+}
+
+#wantToRead {
+  animation: fadein 1s;
+  background-color: #61a4b5;
+}
+
+#read {
+  animation: fadein 1s;
+  background-color: #d73c5e;
+}
+
 /* keyframe to fadein books on load */
 @keyframes fadein {
     from { opacity: 0; }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Banner from './Banner';
 import Select from './Select';
 
 
@@ -12,7 +13,11 @@ const Book = (props) => {
   return (
     <div className="book">
     <div className="book-top">
-      <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${smallThumbnail})`}}></div>
+      <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${smallThumbnail})`}}>
+      {myBooks &&
+        <Banner book={book} myBooks={myBooks}/>
+      }
+      </div>
       <Select book={book} id={id} update={update} results={results} myBooks={myBooks} getSelected={getSelected}/>
     </div>
     <div className="book-title">{title}</div>
