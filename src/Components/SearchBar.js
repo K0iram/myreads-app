@@ -26,7 +26,7 @@ class SearchBar extends Component {
           <form onSubmit={this.searchBooks}>
             <input
               type="text"
-              placeholder="Search by title or author"
+              placeholder="Enter title or author and press enter"
               onChange={this.onInputChange}
               value={this.state.query}
             />
