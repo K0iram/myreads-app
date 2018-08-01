@@ -32,10 +32,10 @@ const Home = (props) => {
 
 Home.propTypes = {
   results: PropTypes.shape({
-      booksReading: PropTypes.array,
-      booksRead: PropTypes.array,
-      booksWaiting: PropTypes.array
-    }).isRequired,
+    booksReading: PropTypes.array,
+    booksRead: PropTypes.array,
+    booksWaiting: PropTypes.array
+  }).isRequired,
   update: PropTypes.func.isRequired
 };
 

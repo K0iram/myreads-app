@@ -13,13 +13,12 @@ const Banner = (props) => {
 
   // check to see if the shelf given matches one of the 3 shelves and return the title
   const title = (shelf) => {
-    if(shelf === 'currentlyReading') {
-      return 'Currently Reading'
-    } else if(shelf === 'wantToRead') {
-      return 'Want To Read'
-    } else if(shelf === 'read') {
-      return 'Read'
-    }
+    const shelfTypes = {
+      currentlyReading: 'Currently Reading',
+      wantToRead: 'Want to Read',
+      read: "Read"
+    };
+    return shelfTypes[shelf];
   };
 
     return (
