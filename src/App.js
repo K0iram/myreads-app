@@ -41,7 +41,7 @@ class App extends Component {
       if(res.error === 'empty query') {
         this.setState({
           results: [],
-          error: 'Your search does not match the requires terms'
+          error: 'Your search does not match the required terms'
         })
       } else {
         this.setState({

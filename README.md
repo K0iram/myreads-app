@@ -1,6 +1,9 @@
 # MyReads Project
 
-This is the first Implementaion of the final assesment of React Fundemantals section of the Udacity React Nanodegree Program.
+This is the final assesment of React Fundemantals section of the Udacity React Nanodegree Program. This Bookshelf
+App allows the user to find books and place them on one of 3 book shelves. Built in react this project
+was about building an application using a given api and using react and react router to show the data.
+The idea was to build an app and be able to pass data between the components.
 
 
 ## Get It Running
@@ -14,8 +17,31 @@ or
 
 ## How It Works
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae odio, fugiat illo praesentium maxime, amet ducimus nam accusantium dolor sapiente! Dicta voluptate delectus aperiam voluptatem tenetur vitae reprehenderit dolorem distinctio.
+In the shelves are the book you have in your data base. They should be in the correct shelf. Clicking
+on the green arrow on one of the books will have a drop down menu with the shelf names and 'None'. Clicking on
+one of the shelf names will move that book to its new location instantly. Clicking on the 'None' will remove
+that book from your book shelf.
+![](./appGifs/main_page.gif)
 
+On the bottom right corner there is a round green button with a magnifying glass. Clicking this button will
+bring you the the Search page. The url should also change to '/search'. On the top of this page you will
+find a search bar. Clicking the back arrow in the search bar or the browser back button will bring you back to the home page. By typing one of the search terms from [SEARCH_TERMS.md](SEARCH_TERMS.md) and pressing the enter key will
+show you a list of books matching that query. If a book if already in your bookshelf it will show a banner on the
+top with the shelf name. By clicking the green arrow on a book you will see a drop down with the shelf names. If the
+book is in your bookshelf the correct shel should be selected in the drop down. If your book is not in the bookcase you may select a shelf to put it on. Your can test that it worked by clicking the back button in the search bar and seeing if the book is in the correct shelf, then go back the the search and double check the banner has the correct label and the drop down menu of that book has the correct shelf selected.
+![](./appGifs/search.gif)
+
+If a user enters a search term that is not valid an error message will show saying the search does not meet
+the required terms and give a random 5 reccomendation terms that you can use. These are always 5 random search terms
+from [SearchTerms.js](./src/Utils/SearchTerms.js)
+![](./appGifs/search_suggestions.gif)
+
+If the user tries to go to any url besides the root '/' or the search page '/search' they will be directed to a danger page telling then this page does not exist and given a back button to direct the user to the home page.
+![](./appGifs/main_page.gif)
+
+#Reach Goal
+For the next iteration of this app I want to build a new page to show more information on a selected book.
+(Title, Author, Publishing Date, Description, ect.)
 
 ## Backend Server
 

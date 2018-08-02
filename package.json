@@ -1,4 +1,6 @@
 {
+  "name": "My-Reads-App",
+  "version": "1.0",
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.3.2",
