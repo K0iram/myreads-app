@@ -21,7 +21,7 @@ In the shelves are the book you have in your data base. They should be in the co
 on the green arrow on one of the books will have a drop down menu with the shelf names and 'None'. Clicking on
 one of the shelf names will move that book to its new location instantly. Clicking on the 'None' will remove
 that book from your book shelf.
-![](./appGifs/main_page.gif)
+![](./appGifs/home_page.gif)
 
 On the bottom right corner there is a round green button with a magnifying glass. Clicking this button will
 bring you the the Search page. The url should also change to '/search'. On the top of this page you will
