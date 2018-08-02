@@ -29,7 +29,7 @@ find a search bar. Clicking the back arrow in the search bar or the browser back
 show you a list of books matching that query. If a book if already in your bookshelf it will show a banner on the
 top with the shelf name. By clicking the green arrow on a book you will see a drop down with the shelf names. If the
 book is in your bookshelf the correct shel should be selected in the drop down. If your book is not in the bookcase you may select a shelf to put it on. Your can test that it worked by clicking the back button in the search bar and seeing if the book is in the correct shelf, then go back the the search and double check the banner has the correct label and the drop down menu of that book has the correct shelf selected.
-![](./appGifs/search.gif)
+![](./appGifs/search_page.gif)
 
 If a user enters a search term that is not valid an error message will show saying the search does not meet
 the required terms and give a random 5 reccomendation terms that you can use. These are always 5 random search terms
