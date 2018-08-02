@@ -22,7 +22,7 @@ class Select extends Component {
     if(!!myBooks.find((b) => b.id === book.id)) {
       return myBooks.find((b) => b.id === book.id).shelf
     } else {
-      return 'move'
+      return 'none'
     }
   };
 
