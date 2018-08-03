@@ -6,14 +6,15 @@ import Select from './Select';
 
 const Book = (props) => {
   const { book, update, results, myBooks, getSelected } = props;
-  const { imageLinks, title, authors, id } = book;
-  const { smallThumbnail } = imageLinks;
+  const { imageLinks, previewLink, title, authors, id } = book;
+
+  const bookImg = !!imageLinks ? ( imageLinks.thumbnail ) : ( '../icons/no-image.svg' )
 
 
   return (
     <div className="book">
     <div className="book-top">
-      <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${smallThumbnail})`}}>
+      <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${bookImg})`}}>
       {myBooks &&
         <Banner book={book} myBooks={myBooks}/>
       }

@@ -14,13 +14,14 @@ class SearchBar extends Component {
 
     onInputChange = e => {
       e.preventDefault();
-      const value = e.target.value
-      this.setState({query: value})
+      const { query } = this.state;
+      const value = e.target.value;
+      this.setState({query: value});
 
-      value.trim() === '' ? (
+      !!query.length && value === '' ? (
         this.props.onClear()
-      ):(
-        this.props.onSearch(this.state.query)
+      ) : (
+        this.props.onSearch(value)
       )
     };
 
