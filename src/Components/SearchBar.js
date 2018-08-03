@@ -8,14 +8,25 @@ class SearchBar extends Component {
       query: ''
     };
 
-    onInputChange = e => {
-      this.setState({query: e.target.value});
+    componentWillUnmount() {
+      this.clearSearchFields();
     };
 
-    searchBooks = (e) => {
+    onInputChange = e => {
       e.preventDefault();
+      const value = e.target.value
+      this.setState({query: value})
+
+      value.trim() === '' ? (
+        this.props.onClear()
+      ):(
+        this.props.onSearch(this.state.query)
+      )
+    };
+
+    clearSearchFields = () => {
       this.setState({query: ''});
-      this.props.onSearch(this.state.query);
+      this.props.onClear();
     };
 
   render() {

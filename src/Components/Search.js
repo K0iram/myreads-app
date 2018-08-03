@@ -25,12 +25,12 @@ const randomArray = (arr) => {
 };
 
 const Search = (props) => {
-  const { searchResults, error, myBooks, onSearchBooks, update } = props;
+  const { searchResults, error, myBooks, onSearchBooks, update, onClear } = props;
 
   return (
     <div>
       <div className="search-books">
-        <SearchBar onSearch={onSearchBooks}/>
+        <SearchBar onSearch={onSearchBooks} onClear={onClear}/>
         <div className="search-books-results">
         {!!searchResults.length &&
           <ol className="books-grid">

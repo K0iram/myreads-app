@@ -54,6 +54,10 @@ class App extends Component {
     });
   };
 
+  clearSearch = () => {
+    this.setState({results: []})
+  }
+
   render() {
     const { results, error, myBooks } = this.state;
     return (
@@ -74,6 +78,7 @@ class App extends Component {
                 update={this.getAllBooks}
                 myBooks={myBooks}
                 error={error}
+                onClear={this.clearSearch}
               />
               )}
           />
