@@ -11,7 +11,7 @@ To run this project please have yarn or npm installed on your machine and run:
 
 * `npm install`
 * `npm start`
-or
+#### or
 * `yarn install`
 * `yarn start`
 
