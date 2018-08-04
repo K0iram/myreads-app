@@ -2,22 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Banner from './Banner';
 import Select from './Select';
+import NoImage from '../icons/image-not-found.jpeg'
 
 
 const Book = (props) => {
   const { book, update, results, myBooks, getSelected } = props;
-  const { imageLinks, previewLink, title, authors, id } = book;
+  const { imageLinks, title, authors, id } = book;
 
-  const bookImg = !!imageLinks ? ( imageLinks.thumbnail ) : ( '../icons/no-image.svg' )
-
+  const bookImg = !!imageLinks ? ( imageLinks.thumbnail ) : ( NoImage );
 
   return (
     <div className="book">
     <div className="book-top">
-      <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${bookImg})`}}>
-      {myBooks &&
-        <Banner book={book} myBooks={myBooks}/>
-      }
+      <div
+        className="book-cover"
+        style={{
+          width: 128,
+          height: 193,
+          backgroundImage: `url(${bookImg})`
+        }}>
+        {myBooks &&
+          <Banner book={book} myBooks={myBooks}/>
+        }
       </div>
       <Select book={book} id={id} update={update} results={results} myBooks={myBooks} getSelected={getSelected}/>
     </div>

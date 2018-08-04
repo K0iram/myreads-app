@@ -35,14 +35,12 @@ class SearchBar extends Component {
       <div className="search-books-bar">
         <Link className="close-search" to="/">Close</Link>
         <div className="search-books-input-wrapper">
-          <form onSubmit={this.searchBooks}>
-            <input
-              type="text"
-              placeholder="Enter title or author and press enter"
-              onChange={this.onInputChange}
-              value={this.state.query}
-            />
-          </form>
+          <input
+            type="text"
+            placeholder="Enter title or author and press enter"
+            onChange={this.onInputChange}
+            value={this.state.query}
+          />
         </div>
       </div>
     )
