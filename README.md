@@ -38,7 +38,7 @@ from [SearchTerms.js](./src/Utils/SearchTerms.js)
 If the user tries to go to any url besides the root '/' or the search page '/search' they will be directed to a danger page telling then this page does not exist and given a back button to direct the user to the home page.
 ![](./appGifs/not_found.gif)
 
-#Reach Goal
+### Reach Goal
 For the next iteration of this app I want to build a new page to show more information on a selected book.
 (Title, Author, Publishing Date, Description, ect.)
 
