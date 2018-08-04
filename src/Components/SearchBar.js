@@ -37,7 +37,7 @@ class SearchBar extends Component {
         <div className="search-books-input-wrapper">
           <input
             type="text"
-            placeholder="Enter title or author and press enter"
+            placeholder="Search by title or author"
             onChange={this.onInputChange}
             value={this.state.query}
           />
