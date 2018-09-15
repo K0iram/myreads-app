@@ -4,7 +4,7 @@ import Book from './Book'
 
 
 const BookShelf = (props) => {
-  const { books, title, update} = props;
+  const { books, title, update, getBook, bookInfo} = props;
   const noBooks = "There Are No Books On This Shelf";
 
   return (
@@ -14,7 +14,7 @@ const BookShelf = (props) => {
       <ol className="books-grid">
         {books.map((book) => (
           <li key={book.id}>
-            <Book book={book} update={update}/>
+            <Book book={book} update={update} getBook={getBook} bookInfo={bookInfo}/>
           </li>
         ))}
       </ol>

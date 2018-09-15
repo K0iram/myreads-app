@@ -5,7 +5,7 @@ import BookShelf from './BookShelf';
 
 
 const Home = (props) => {
-  const { results, update } = props;
+  const { results, update, getBook } = props;
   const { booksReading, booksRead, booksWaiting } = results;
 
   const shelves = [ booksReading, booksWaiting, booksRead ];
@@ -19,7 +19,13 @@ const Home = (props) => {
         </div>
         <div className="list-books-content">
           {shelfTitles.map((shelf, i) => (
-            <BookShelf key={i} books={shelves[i]} update={update} title={shelf}/>
+            <BookShelf
+              key={i}
+              books={shelves[i]}
+              update={update}
+              title={shelf}
+              getBook={getBook}
+            />
           ))}
         </div>
         <div className="open-search">

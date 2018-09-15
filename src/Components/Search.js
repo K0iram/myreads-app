@@ -25,7 +25,7 @@ const randomArray = (arr) => {
 };
 
 const Search = (props) => {
-  const { searchResults, error, myBooks, onSearchBooks, update, onClear } = props;
+  const { searchResults, error, myBooks, onSearchBooks, update, onClear, getBook } = props;
 
   return (
     <div>
@@ -40,6 +40,7 @@ const Search = (props) => {
                 book={book}
                 myBooks={myBooks}
                 update={update}
+                getBook={getBook}
               />
             )}
           </ol>
@@ -50,8 +51,8 @@ const Search = (props) => {
               <div className="error-message__inner">
                 <h1>{error}</h1>
                 <h2>Try some of these recommended terms<br/>
-                  {randomArray(SearchTerms).map((word) => (
-                    <span>"{word}" </span>
+                  {randomArray(SearchTerms).map((word, i) => (
+                    <span key={i}>"{word}" </span>
                   ))}
                 </h2>
               </div>

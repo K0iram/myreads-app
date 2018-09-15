@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Banner from './Banner';
 import Select from './Select';
@@ -6,7 +7,7 @@ import NoImage from '../icons/image-not-found.jpeg'
 
 
 const Book = (props) => {
-  const { book, update, results, myBooks, getSelected } = props;
+  const { book, update, results, myBooks, getSelected, getBook } = props;
   const { imageLinks, title, authors, id } = book;
 
   const bookImg = !!imageLinks ? ( imageLinks.thumbnail ) : ( NoImage );
@@ -26,6 +27,7 @@ const Book = (props) => {
         }
       </div>
       <Select book={book} id={id} update={update} results={results} myBooks={myBooks} getSelected={getSelected}/>
+      <Link to='/book' onClick={() => getBook(id)}>Click Me</Link>
     </div>
     <div className="book-title">{title}</div>
       {authors &&
@@ -48,6 +50,7 @@ Book.propTypes = {
     }).isRequired,
   update: PropTypes.func.isRequired,
   getSelected: PropTypes.func,
+  getBook: PropTypes.func,
   results: PropTypes.array,
   myBooks: PropTypes.array
 };
